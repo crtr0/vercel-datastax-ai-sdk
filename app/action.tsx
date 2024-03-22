@@ -3,6 +3,8 @@ import 'server-only';
 import { createAI, createStreamableUI, getMutableAIState } from 'ai/rsc';
 import OpenAI from 'openai';
 
+import { AstraDB } from '@datastax/astra-db-ts'
+
 import {
   spinner,
   BotCard,
@@ -28,6 +30,13 @@ import { StocksSkeleton } from '@/components/llm-stocks/stocks-skeleton';
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY || '',
 });
+
+const {
+  ASTRA_DB_API_ENDPOINT,
+  ASTRA_DB_APPLICATION_TOKEN
+} = process.env
+
+const db = new AstraDB(ASTRA_DB_APPLICATION_TOKEN, ASTRA_DB_API_ENDPOINT)
 
 async function confirmPurchase(symbol: string, price: number, amount: number) {
   'use server';
@@ -121,6 +130,7 @@ async function submitUserMessage(content: string) {
         content: `\
 You are a stock trading conversation bot and you can help users buy stocks, step by step.
 You and the user can discuss stock prices and the user can adjust the amount of stocks they want to buy, or place an order, in the UI.
+If you don't recognize a stock symbol, please just pass it to the function anyway. 
 
 Messages inside [] means that it's a UI element or a user event. For example:
 - "[Price of AAPL = 100]" means that an interface of the stock price of AAPL is shown to the user.
@@ -273,7 +283,18 @@ Besides that, you can also chat with users and do some calculations if needed.`,
         </BotCard>,
       );
 
-      await sleep(1000);
+      // fetch actual price from Astra DB if it's in the S&P 500
+      const collection = await db.collection("stock_prices")
+      const doc = await collection.findOne({ Symbol: symbol })
+      if (doc) {
+        price = parseFloat(doc.Currentprice)
+      }
+      else if (symbol === "DSTX") {
+        price = 9999
+      }
+      else {
+        await sleep(1000);
+      }
 
       reply.done(
         <BotCard>

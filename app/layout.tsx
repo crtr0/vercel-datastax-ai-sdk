@@ -10,9 +10,9 @@ import { Header } from '@/components/header';
 import { Providers } from '@/components/providers';
 
 const meta = {
-  title: 'AI RSC Demo',
+  title: 'Vercel AI SDK + DataStax demo',
   description:
-    'Demo of an interactive financial assistant built using Next.js and Vercel AI SDK.',
+    'Demo of an interactive financial assistant built using Next.js, Vercel AI SDK and AstraDB',
 };
 export const metadata: Metadata = {
   ...meta,
@@ -76,4 +76,4 @@ export default function RootLayout({
   );
 }
 
-export const runtime = 'edge';
+export const runtime = 'nodejs';

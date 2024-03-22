@@ -8,7 +8,7 @@ Check out our [blog post](https://datastax.com/blog) for a more detailed breakdo
 
 ### Prerequisites
 
-- An Astra DB account. You can [create one here](https://astra.datastax.com/register).
+- An Astra DB account. You can [create one here](https://astra.datastax.com/signup).
     - An Astra Vector Database
 - An OpenAI account and api key [create one here](https://platform.openai.com/)
 

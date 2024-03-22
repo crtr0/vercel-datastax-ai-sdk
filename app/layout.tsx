@@ -12,7 +12,7 @@ import { Providers } from '@/components/providers';
 const meta = {
   title: 'Vercel AI SDK + DataStax demo',
   description:
-    'Demo of an interactive financial assistant built using Next.js, Vercel AI SDK and AstraDB',
+    'Demo of an interactive financial assistant built using Next.js, Vercel AI SDK and DataStax Astra DB',
 };
 export const metadata: Metadata = {
   ...meta,

@@ -26,14 +26,15 @@ export function EmptyScreen({
     <div className="mx-auto max-w-2xl px-4">
       <div className="rounded-lg border bg-background p-8 mb-4">
         <h1 className="mb-2 text-lg font-semibold">
-          Welcome to AI SDK 3.0 Generative UI demo!
+          Welcome to DataStax + Vercel AI SDK 3.0 Generative UI demo!
         </h1>
         <p className="mb-2 leading-normal text-muted-foreground">
           This is a demo of an interactive financial assistant. It can show you
-          stocks, tell you their prices, and even help you buy shares.
+          stocks, tell you their prices, and even help you buy shares. 
         </p>
         <p className="mb-2 leading-normal text-muted-foreground">
           The demo is built with{' '}
+          <ExternalLink href="https://datastax.com">DataStax Astra DB</ExternalLink>, {' '}
           <ExternalLink href="https://nextjs.org">Next.js</ExternalLink> and the{' '}
           <ExternalLink href="https://sdk.vercel.ai/docs">
             Vercel AI SDK

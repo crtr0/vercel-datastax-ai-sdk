@@ -27,7 +27,7 @@ export async function Header() {
         <Button variant="outline" asChild>
           <a
             target="_blank"
-            href="https://github.com/vercel/ai/tree/main/examples/next-ai-rsc"
+            href="https://github.com/datastax/vercel-datastax-ai-sdk"
             rel="noopener noreferrer"
           >
             <IconGitHub />
@@ -36,7 +36,7 @@ export async function Header() {
         </Button>
         <Button asChild>
           <a
-            href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fai%2Fblob%2Fmain%2Fexamples%2Fnext-ai-rsc&env=OPENAI_API_KEY&envDescription=OpenAI+API+Key&envLink=https%3A%2F%2Fplatform.openai.com%2Fapi-keys"
+            href="https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fdatastax%2Fvercel-datastax-ai-sdk&env=OPENAI_API_KEY&env=ASTRA_DB_API_ENDPOINT&env=ASTRA_DB_APPLICATION_TOKEN&envDescription=OpenAI+API+key+and+Astra+DB+config&envLink=https%3A%2F%2Fgithub.com%2Fdatastax%2Fvercel-datastax-ai-sdk"
             target="_blank"
           >
             <IconVercel className="mr-2" />
